@@ -9,8 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var rotation: Double = 0
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Slider(value: $rotation, in: 0.0 ... 360, step: 1.0)
+                .padding()
+            
+            Image(systemName: "sun.max")
+                .rotationEffect(.degrees(rotation))
+            
+        }.font(.title)
     }
 }
 
